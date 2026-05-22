@@ -1,0 +1,44 @@
+MiMo CodeOrbit - Terminal Run Log
+Generated for Xiaomi MiMo Orbit application evidence.
+
+Workspace:
+E:\python\LLM\大模型项目-自用\小米token计划
+
+Command 1:
+C:\Users\14368\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m codeorbit.cli scan examples\demo-repo
+
+Output:
+Repository: E:\python\LLM\大模型项目-自用\小米token计划\examples\demo-repo
+Languages:
+  - Python: 2
+  - TOML: 1
+  - Markdown: 1
+Key files:
+  - README.md
+  - pyproject.toml
+Test commands:
+  - pytest
+
+Command 2:
+$env:CODEORBIT_DEMO_MODE='1'
+C:\Users\14368\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m codeorbit.cli run examples\demo-repo --task "generate login retry limit implementation plan"
+
+Output:
+Run #3 status: completed
+
+Implementation plan:
+1. 确认需求影响的入口、服务层和测试层，并保留现有架构边界。
+2. 在相关模块中加入最小实现，优先复用现有配置、错误处理和日志方式。
+3. 补充面向成功路径、失败路径和回归风险的测试。
+4. 导出 Markdown 报告和申请文案，用于 MiMo Orbit 计划材料。
+
+Report command:
+C:\Users\14368\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m codeorbit.cli report 3
+
+Agent Workflow Evidence:
+1. Repository scanner identifies languages, dependency files, README, tests, and candidate source snippets.
+2. Analysis service creates a persisted run in SQLite.
+3. LLMClient builds a structured prompt from the repository snapshot and task.
+4. In demo mode, the same output schema is produced locally; in production mode, MiMo-compatible Chat Completions is called through MIMO_API_KEY, MIMO_BASE_URL, and MIMO_MODEL.
+5. Result is saved as clarification, relevant files, implementation plan, risks, suggested diff, test plan, and application copy.
+6. CLI and Web UI both read the same persisted run data.
